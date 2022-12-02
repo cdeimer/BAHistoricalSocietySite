@@ -1,12 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
-{% if page_list %}
-    <ul>
-    {% for page in page_list %}
-        <li><a href="/history/{{ page.id }}/">{{ page.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No pages are available.</p>
-{% endif %}
+
+<div class="jumbotron text-center">
+    <h1>Brighton Allston Historical Society</h1>
+</div>
+
+<div class="card-deck">
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <h2 class="card-title">History</h2>
+            <p class="card-text">Learn about the history of Brighton and Allston</p>
+            <a href="/history/" class="btn btn-primary">Articles</a>
+            <a href="#" class="btn btn-primary">Maps</a>
+            <a href="#" class="btn btn-primary">Interviews</a>
+            <a href="#" class="btn btn-primary">Photos</a>
+            <a href="#" class="btn btn-primary">Videos</a>
+            <a href="#" class="btn btn-primary">More</a>
+        </div>
+    </div>
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <h2 class="card-title">Join Us!</h2>
+            <p class="card-text">Become a part of the Brighton Allston Historical Society</p>
+            <a href="#" class="btn btn-primary">New Members</a>
+            <a href="#" class="btn btn-primary">Bylaws</a>
+            <a href="#" class="btn btn-primary">Organization</a>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>Our Mission</h4>
+            <p>The Brighton Allston Historical Society is a non-profit organization dedicated to the preservation of the history of Brighton and Allston, Massachusetts. We are a group of volunteers who are interested in the history of our neighborhoods and who want to share that history with others.</p>
+        </div>
+        <div class="col-sm-4">
+            <h4>Our History</h4>
+            <p>The Brighton Allston Historical Society was founded in 1978 by a group of residents who were interested in the history of Brighton and Allston. The Society was incorporated in 1980 and is a 501(c)(3) non-profit organization. The Society is governed by a Board of Directors, which is elected by the membership.</p>
+        </div>
+        <div class="col-sm-4">
+            <h4>Our Goals</h4>
+            <p>The Society's goals are to collect, preserve, and make available to the public information about the history of Brighton and Allston. We do this by collecting and preserving documents, photographs, and other materials relating to the history of the area. We also sponsor lectures, tours, and other events that help to educate the public about the history of Brighton and Allston.</p>
+        </div>
+    </div>
+</div>
 {%endblock%}
