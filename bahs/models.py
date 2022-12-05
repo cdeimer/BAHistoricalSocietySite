@@ -25,3 +25,10 @@ class PageImage(models.Model):
 
     def __str__(self):
         return self.page.title + ": " + str(self.pk)
+
+class PageTags(models.Model):
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='tags')
+    tag = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.page.title + ": " + self.tag
