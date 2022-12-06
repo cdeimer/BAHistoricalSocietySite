@@ -1,19 +1,19 @@
 from django.contrib import admin
-from .models import Page, PageImage, PageTags
+from .models import Page, PageImage, PageTag
 
 class PageImageInline(admin.StackedInline):
     model = PageImage
     extra = 1
 
-class PageTagsInline(admin.StackedInline):
-    model = PageTags
+class PageTagInline(admin.StackedInline):
+    model = PageTag
     extra = 1
 
 class PageAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['title', 'body']})
+        (None, {'fields': ['title', 'body', 'page_type', 'related_pages', 'attribution']})
     ]
-    inlines = [PageImageInline, PageTagsInline]
+    inlines = [PageImageInline, PageTagInline]
 
 # Register your models here.
 admin.site.register(Page, PageAdmin)

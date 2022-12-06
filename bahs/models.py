@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.safestring import mark_safe
+from django.db.models import Q
 
 # Create your models here.
 
@@ -8,6 +9,20 @@ class Page(models.Model):
     body = models.TextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+
+    class PageType(models.TextChoices):
+        ARTICLE = 'Article', 'Article'
+        ALBUM = 'Album', 'Album'
+        INTERVIEW = 'Interview', 'Interview'
+    
+    page_type = models.CharField(
+        max_length=10,
+        choices=PageType.choices,
+        default=PageType.ARTICLE
+    )
+
+    related_pages = models.ManyToManyField('self', blank=True)
+    attribution = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta:
         ordering = ['-created_on']
@@ -26,7 +41,7 @@ class PageImage(models.Model):
     def __str__(self):
         return self.page.title + ": " + str(self.pk)
 
-class PageTags(models.Model):
+class PageTag(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='tags')
     tag = models.CharField(max_length=100)
 
